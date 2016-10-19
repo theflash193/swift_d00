@@ -9,7 +9,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="d00" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -233,8 +232,10 @@
                         <outlet property="but_9" destination="tSf-Gc-IPQ" id="wBS-75-5ge"/>
                         <outlet property="but_ac" destination="PN6-og-pP6" id="eHH-xS-pl3"/>
                         <outlet property="but_neg" destination="Kjg-GZ-GlP" id="9cm-aE-aMa"/>
+                        <outlet property="calcul" destination="V7z-dH-2mi" id="sVL-62-krT"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="441" y="670"/>
         </scene>

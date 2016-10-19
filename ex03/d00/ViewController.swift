@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var calcul: UILabel!
+    
     @IBOutlet weak var but_ac: UIButton!
     @IBOutlet weak var but_neg: UIButton!
     
