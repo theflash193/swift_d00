@@ -50,5 +50,26 @@ class ViewController: UIViewController {
         calcul.text = "2"
     }
     
+    @IBAction func action_touch_3(sender: AnyObject) {
+        calcul.text = "3"
+    }
+    @IBAction func action_touch_4(sender: AnyObject) {
+        calcul.text = "4"
+    }
+    @IBAction func action_touch_5(sender: AnyObject) {
+        calcul.text = "5"
+    }
+    @IBAction func action_touch_6(sender: AnyObject) {
+        calcul.text = "6"
+    }
+    @IBAction func action_touch_7(sender: AnyObject) {
+        calcul.text = "7"
+    }
+    @IBAction func action_touch_8(sender: AnyObject) {
+        calcul.text = "8"
+    }
+    @IBAction func action_touch_9(sender: AnyObject) {
+        calcul.text = "9"
+    }
 }
 
