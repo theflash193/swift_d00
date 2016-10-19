@@ -38,6 +38,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func action_touch_0(sender: AnyObject) {
+        calcul.text = "0"
+    }
 
+    @IBAction func action_touch_1(sender: AnyObject) {
+        calcul.text = "1"
+    }
+    
+    @IBAction func action_touch_2(sender: AnyObject) {
+        calcul.text = "2"
+    }
+    
 }
 
