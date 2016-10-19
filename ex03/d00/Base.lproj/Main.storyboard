@@ -204,8 +204,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="114" height="107"/>
                                                         <color key="backgroundColor" red="0.97932346204188481" green="0.42856870105628081" blue="0.19084246968147583" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                                         <state key="normal" title="*">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="action_touch_fois:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jl5-2J-rE0"/>
