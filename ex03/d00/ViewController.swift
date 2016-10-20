@@ -79,12 +79,14 @@ class ViewController: UIViewController {
         ajouter_au_nombre("9")
     }
     @IBAction func action_touch_ac(sender: AnyObject) {
-        print("pression touch ac")
         calcul.text = "0"
     }
     
     @IBAction func action_touch_neg(sender: AnyObject) {
         print("pression touch neg")
+        var valeur = Int(calcul.text!)!
+        valeur = valeur * -1
+        calcul.text = String(valeur)
     }
     
     @IBAction func action_touch_fois(sender: AnyObject) {
@@ -124,9 +126,8 @@ class ViewController: UIViewController {
     }
     
     func check_int_max() {
-        print(Int.max)
         let number = Int(calcul.text!)
-        if number > Int.max || calcul.text?.characters.count >= 20 {
+        if (number > Int.max || calcul.text?.characters.count >= 20) || (number < Int.min || calcul.text?.characters.count >= (20 - 1)) {
             calcul.text = "ERROR"
         }
     }
