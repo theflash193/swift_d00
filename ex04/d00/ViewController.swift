@@ -125,23 +125,46 @@ class ViewController: UIViewController {
     @IBAction func action_touch_egal(sender: AnyObject) {
         print("pression touch egal")
         var resultat: Int = 0
+        var overflow: (Int, Bool) = (0, false)
+        
         var erreur: Bool = false
         
         if valeur_a_stocker == true {
             b = Int(calcul.text!)!
             switch op {
             case Operation.Multi:
-                resultat = a * b
+                overflow = Int.multiplyWithOverflow(a, b)
+                if overflow.1 == false {
+                    resultat = overflow.0
+                } else {
+                    erreur = true
+                }
             case Operation.Divsion:
                 if (b != 0) {
+                    overflow = Int.divideWithOverflow(a, b)
+                    if overflow.1 == false {
+                        resultat = overflow.0
+                    } else {
+                        erreur = true
+                    }
                  resultat = a / b
                 } else {
                     erreur = true
                 }
             case Operation.Soustraction:
-                resultat = a - b
+                overflow = Int.subtractWithOverflow(a, b)
+                if overflow.1 == false {
+                    resultat = overflow.0
+                } else {
+                    erreur = true
+                }
             case Operation.Addition:
-                resultat = a + b
+                overflow = Int.addWithOverflow(a, b)
+                if overflow.1 == false {
+                    resultat = overflow.0
+                } else {
+                    erreur = true
+                }
             default:
                 erreur = false
             }
