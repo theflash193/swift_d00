@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     var op: Operation = Operation.Default
     var a: Int = 0
     var b: Int = 0
-    
+    var valeur_a_stocker: Bool = false
     @IBOutlet weak var calcul: UILabel!
     
     @IBOutlet weak var but_ac: UIButton!
@@ -87,30 +87,80 @@ class ViewController: UIViewController {
         var valeur = Int(calcul.text!)!
         valeur = valeur * -1
         calcul.text = String(valeur)
+        valeur_a_stocker = false
     }
     
     @IBAction func action_touch_fois(sender: AnyObject) {
         print("pression touch multiplication")
+        self.op = Operation.Multi
+        a = Int(calcul.text!)!
+        valeur_a_stocker = true
+        calcul.text = "0"
     }
     
     @IBAction func action_touch_division(sender: AnyObject) {
         print("pression touch division")
+        self.op = Operation.Divsion
+        a = Int(calcul.text!)!
+        valeur_a_stocker = true
+        calcul.text = "0"
     }
     
     @IBAction func action_touch_moins(sender: AnyObject) {
         print("pression touch moins")
+        self.op = Operation.Soustraction
+        a = Int(calcul.text!)!
+        valeur_a_stocker = true
+        calcul.text = "0"
     }
     
     @IBAction func action_touch_plus(sender: AnyObject) {
         print("pression touch plus")
+         self.op = Operation.Addition
+        a = Int(calcul.text!)!
+        valeur_a_stocker = true
+        calcul.text = "0"
     }
     
     @IBAction func action_touch_egal(sender: AnyObject) {
         print("pression touch egal")
+        var resultat: Int = 0
+        var erreur: Bool = false
+        
+        if valeur_a_stocker == true {
+            b = Int(calcul.text!)!
+            switch op {
+            case Operation.Multi:
+                resultat = a * b
+            case Operation.Divsion:
+                if (b != 0) {
+                 resultat = a / b
+                } else {
+                    erreur = true
+                }
+            case Operation.Soustraction:
+                resultat = a - b
+            case Operation.Addition:
+                resultat = a + b
+            default:
+                erreur = false
+            }
+            
+            if (erreur == false) {
+                calcul.text = String(resultat)
+                op = Operation.Default
+                a = 0
+                b = 0
+                valeur_a_stocker = false
+            } else {
+                calcul.text = "ERROR"
+            }
+        }
     }
     
     func ajouter_au_nombre(nombre: String) {
         var nombre_modifier: String
+        
         switch calcul.text! {
             case "0":
                 nombre_modifier = nombre
