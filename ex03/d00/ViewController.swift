@@ -46,71 +46,49 @@ class ViewController: UIViewController {
     }
 
     @IBAction func action_touch_0(sender: AnyObject) {
-        calcul.text = "0"
-        print("pression touch 0")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("0")
     }
 
     @IBAction func action_touch_1(sender: AnyObject) {
-        calcul.text = "1"
-        print("pression touch 1")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("1")
     }
     
     @IBAction func action_touch_2(sender: AnyObject) {
-        calcul.text = "2"
-        print("pression touch 2")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("2")
     }
     
     @IBAction func action_touch_3(sender: AnyObject) {
-        calcul.text = "3"
-        print("pression touch 3")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("3")
     }
     @IBAction func action_touch_4(sender: AnyObject) {
-        calcul.text = "4"
-        print("pression touch 4")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("4")
     }
     @IBAction func action_touch_5(sender: AnyObject) {
-        calcul.text = "5"
-        print("pression touch 5")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("5")
     }
     @IBAction func action_touch_6(sender: AnyObject) {
-        calcul.text = "6"
-        print("pression touch 6")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("6")
     }
     @IBAction func action_touch_7(sender: AnyObject) {
-        calcul.text = "7"
-        print("pression touch 7")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("7")
     }
     @IBAction func action_touch_8(sender: AnyObject) {
-        calcul.text = "8"
-        print("pression touch 8")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("8")
     }
     @IBAction func action_touch_9(sender: AnyObject) {
-        calcul.text = "9"
-        print("pression touch 9")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        ajouter_au_nombre("9")
     }
     @IBAction func action_touch_ac(sender: AnyObject) {
         print("pression touch ac")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
+        calcul.text = "0"
     }
     
     @IBAction func action_touch_neg(sender: AnyObject) {
         print("pression touch neg")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
     }
     
     @IBAction func action_touch_fois(sender: AnyObject) {
         print("pression touch multiplication")
-        calcul.text = ecriture_de_nombre("0", calcul: calcul.text!)
     }
     
     @IBAction func action_touch_division(sender: AnyObject) {
@@ -129,14 +107,28 @@ class ViewController: UIViewController {
         print("pression touch egal")
     }
     
-    func ecriture_de_nombre(nombre: String, calcul: String) -> String {
+    func ajouter_au_nombre(nombre: String) {
         var nombre_modifier: String
-        if calcul == "0" {
-            nombre_modifier = nombre
-        } else {
-            nombre_modifier = nombre
+        switch calcul.text! {
+            case "0":
+                nombre_modifier = nombre
+                calcul.text = nombre_modifier
+            case "ERROR":
+                nombre_modifier = nombre
+                calcul.text = nombre_modifier
+            default:
+                nombre_modifier = nombre
+                calcul.text = calcul.text! + nombre_modifier
         }
-        return nombre_modifier
+        check_int_max()
+    }
+    
+    func check_int_max() {
+        print(Int.max)
+        let number = Int(calcul.text!)
+        if number > Int.max || calcul.text?.characters.count >= 20 {
+            calcul.text = "ERROR"
+        }
     }
 }
 
